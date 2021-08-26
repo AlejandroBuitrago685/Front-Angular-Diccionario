@@ -1,0 +1,29 @@
+<div class="caja1" >
+    <form id="formulario">
+      <h3>Añadir Vehículo</h3>
+  
+      <div>
+        <label>Marca</label>
+        <input placeholder="ID Estudiante" type="text" name="id_student" id="id_student" formControlName = "id_student">
+        <br>
+        <label>Modelo</label>
+        <input placeholder="ID Persona" type="text" id="id_persona" name="id_persona" formControlName = "id_persona">
+        <br>
+        <label>Color</label>
+        <input placeholder="Horas" type="text" id="num_hoursweek" name="num_hoursweek" formControlName = "num_hoursweek">
+        <br>
+        <label>Matrícula</label>
+        <input placeholder="Comentarios" type="text" id="coments" name="coments" formControlName = "coments">
+        <br>
+        <label>Vastidor</label>
+        <input placeholder="ID Profesor" type="text" id="id_profesor" name="id_profesor" formControlName = "id_profesor">
+      </div>
+      
+      <div class="Botones">
+        <button mat-stroked-button color="primary" id="boton-enviar" style="margin-right: 15px;">Añadir</button>
+        <button mat-stroked-button color="primary" [mat-dialog-close]>Cerrar</button>
+      </div>
+      
+    </form>
+  </div>
+
