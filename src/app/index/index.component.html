@@ -7,8 +7,8 @@
         <div class="vertical-menu">
           <ul style="list-style-type: none; margin-left: -40px;">
             <li><a class="active" id="home">Inicio</a></li>
-            <li><a class="esp" [routerLink]="['']">Gestionar Diccionario Español</a></li>
-            <li><a class="ing" [routerLink]="['']">Gestionar Diccionario Inglés</a></li>
+            <li><a class="esp" [routerLink]="['espanol']">Gestionar Diccionario Español</a></li>
+            <li><a class="ing" [routerLink]="['ingles']">Gestionar Diccionario Inglés</a></li>
           </ul>
         </div>
     
@@ -25,5 +25,5 @@
             <button mat-raised-button style="color: #333; border: 1px solid;" (click)="drawer.toggle()">Administrar</button>
         </div>
     </div>
-    <app-footer></app-footer>
+    <app-footer style="bottom: 0;"></app-footer>
 </mat-drawer-container>

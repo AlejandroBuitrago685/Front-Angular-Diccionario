@@ -11,13 +11,6 @@
     min-height: calc(100vh - 230px);
   }
 
-  .tarjetas{
-    text-align: left;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .banner{
       display: flex;
       flex-direction: row;

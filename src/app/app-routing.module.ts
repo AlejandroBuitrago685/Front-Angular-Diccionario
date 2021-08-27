@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EspanolIndexComponent } from './Components/Espanol/espanol-index/espanol-index.component';
+import { InglesIndexComponent } from './Components/Ingles/ingles-index/ingles-index.component';
+import { GlobalErrorComponent } from './ErrorHandling/global-error/global-error.component';
 import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   { path: '', component:  IndexComponent},
-  { path: 'ingles', component:  EspanolIndexComponent},
-  { path: 'espanol', component:  EspanolIndexComponent}
+  { path: 'ingles', component:  InglesIndexComponent},
+  { path: 'espanol', component:  EspanolIndexComponent},
+  { path: 'error/:error', component:  GlobalErrorComponent}
 ];
 
 @NgModule({

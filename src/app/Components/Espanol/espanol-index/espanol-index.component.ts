@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DiccionarioServiceService } from '../../diccionario-service.service';
 import { AddModalComponent } from '../add-modal/add-modal.component';
+import { Espanol } from '../espanol';
 
 @Component({
   selector: 'app-espanol-index',
@@ -9,9 +11,19 @@ import { AddModalComponent } from '../add-modal/add-modal.component';
 })
 export class EspanolIndexComponent implements OnInit {
 
-  constructor(private dialog:MatDialog) { }
+  palabrasEspanolas: Espanol[] = [];
+
+  constructor(private dialog:MatDialog, private DBService: DiccionarioServiceService) { }
 
   ngOnInit(): void {
+
+    this.DBService.ObtenerEspanol().subscribe(
+      res => this.palabrasEspanolas = res
+    );
+    (error:any) => {
+      console.log(error);
+    }
+
   }
 
 
