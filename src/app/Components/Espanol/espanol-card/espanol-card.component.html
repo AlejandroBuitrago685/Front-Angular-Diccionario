@@ -4,8 +4,8 @@
 
         <div class="card__content card__padding">
             <div class="card__share">
-                <a id="share" class="share-toggle share-icon-delete"></a>
-                <a id="share" class="share-toggle share-icon-modify"></a>
+                <a id="share" class="share-toggle share-icon-delete" (click)= "delete.emit(espanol)"></a>
+                <a id="share" class="share-toggle share-icon-modify"(click)= "edit.emit(espanol)"></a>
             </div>
 
             <div class="card__meta">

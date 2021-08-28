@@ -11,8 +11,7 @@
             <button  mat-raised-button style="color: #333; border: 1px solid; right: 0; height: 35px;" (click)="openDialog()">Añadir palabra</button>
             <div>
                 <div class="buscador">
-                  <input type="text" class="input" placeholder="Palabra a buscar...">
-                  <input type="button" value="Buscar" class="close-btn">
+                  <input type="text" class="input" placeholder="Palabra a buscar..." [(ngModel)]="filtercards">
                 </div>
               </div>
         </div> 
@@ -20,9 +19,9 @@
     <hr>
 
     <div class="tarjetas">
-        <div class="caja-espanol" style="margin-left: 20px;" *ngFor="let espanol of palabrasEspanolas">
+        <div class="caja-espanol" style="margin-left: 20px;" *ngFor="let espanol of palabrasEspanolas | filter: filtercards">
             
-            <app-espanol-card [espanol]="espanol"></app-espanol-card>
+            <app-espanol-card (delete)=Borrar(espanol) (edit)=EditarPalabra(espanol) [espanol]="espanol"></app-espanol-card>
     
         </div>
     </div>

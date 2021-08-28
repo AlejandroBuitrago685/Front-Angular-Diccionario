@@ -1,0 +1,23 @@
+<div class="caja1">
+    <form id="formulario" [formGroup]="miFormulario">
+  
+      <h3 class="TituloModal">Actualizar la palabra <strong>{{data.palabra}}</strong></h3>
+      <hr>
+  
+      <div>
+        <label>Palabra</label>
+        <input placeholder="Palabra en Español" type="text" name="palabra" id="palabra" formControlName="palabra">
+        <br>
+        <label>Descripción</label>
+        <input placeholder="Descripción en Español" type="text" id="descripcion" name="descripcion"
+          formControlName="descripcion">
+      </div>
+  
+      <div class="Botones">
+        <button mat-stroked-button id="boton-enviar" color="primary"
+          (click)="EditPalabra()">Actualizar palabra</button>
+        <button mat-stroked-button color="primary" style="margin-left: 15px; color: brown;" [mat-dialog-close]>Cancelar</button>
+      </div>
+  
+    </form>
+  </div>

@@ -21,6 +21,8 @@ import { MyInterceptor } from './Interceptores/Interceptor';
 import { GlobalErrorHandlingService } from './ErrorHandling/error-handling.service';
 import { AddEnglishComponent } from './Components/Ingles/add-english/add-english.component';
 import { EspanolCardComponent } from './Components/Espanol/espanol-card/espanol-card.component';
+import { FiltroEspanolPipe } from './Pipes/filtro-espanol.pipe';
+import { UpdateModalEspanolComponent } from './Components/Espanol/update-modal-espanol/update-modal-espanol.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { EspanolCardComponent } from './Components/Espanol/espanol-card/espanol-
     InglesIndexComponent,
     GlobalErrorComponent,
     AddEnglishComponent,
-    EspanolCardComponent
+    EspanolCardComponent,
+    FiltroEspanolPipe,
+    UpdateModalEspanolComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as moment from 'moment';
+import { DiccionarioServiceService } from '../../diccionario-service.service';
 import { Espanol } from '../espanol';
 
 @Component({
@@ -9,32 +10,33 @@ import { Espanol } from '../espanol';
 })
 export class EspanolCardComponent implements OnInit {
 
-  
+  palabrasEspanolas: Espanol[] = [];
+
+
   @Input()
   espanol: Espanol = new Espanol();
 
   @Output()
-  edit : EventEmitter<Espanol> = new EventEmitter<Espanol>();
+  edit: EventEmitter<Espanol> = new EventEmitter<Espanol>();
 
   @Output()
-  delete : EventEmitter<Espanol> = new EventEmitter<Espanol>();
+  delete: EventEmitter<Espanol> = new EventEmitter<Espanol>();
 
-  constructor() { }
+  constructor(private DBService:DiccionarioServiceService) { }
 
   ngOnInit(): void {
-    var AltaFormateada= moment(this.espanol.fechaAlta).format('DD/MM/YYYY kk:mm');
-    var ModFormateada= moment(this.espanol.fechaModificacion).format('DD/MM/YYYY kk:mm');
+    var AltaFormateada = moment(this.espanol.fechaAlta).format('DD/MM/YYYY kk:mm');
+    var ModFormateada = moment(this.espanol.fechaModificacion).format('DD/MM/YYYY kk:mm');
 
     this.espanol.fechaAlta = AltaFormateada;
 
-    if(this.espanol.fechaModificacion === null){
+    if (this.espanol.fechaModificacion === null) {
       this.espanol.fechaModificacion = "Aún no se ha modificado.";
     }
-     else{
+    else {
       this.espanol.fechaModificacion = ModFormateada;
     }
 
-    
   }
 
 }

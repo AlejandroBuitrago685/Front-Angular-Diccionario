@@ -56,13 +56,13 @@ export class DiccionarioServiceService {
   }
 
   //Actualizar Espanol
-  updateEspanol(palabra:Espanol):Observable<Espanol>{
-    return this.http.put<Espanol>(this.RutaDB + "/espanol/", palabra);
+  updateEspanol(palabra:string, contenido:Espanol):Observable<Espanol>{
+    return this.http.put<Espanol>(this.RutaDB + "/espanol/" + palabra, contenido);
   }
 
   //Actualizar Ingles
-  updateIngles(palabra:Ingles):Observable<Ingles>{
-    return this.http.put<Ingles>(this.RutaDB + "/ingles/", palabra);
+  updateIngles(palabra:string, contenido:Ingles):Observable<Ingles>{
+    return this.http.put<Ingles>(this.RutaDB + "/ingles/" + palabra, palabra);
   }
 
 }
