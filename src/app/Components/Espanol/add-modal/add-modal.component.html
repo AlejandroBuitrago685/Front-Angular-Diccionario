@@ -9,13 +9,13 @@
       <input placeholder="Palabra en Español" type="text" name="palabra" id="palabra" formControlName="palabra">
       <br>
       <label>Descripción</label>
-      <input placeholder="Descripción en Español" type="text" id="descripcion" name="descripcion"
-        formControlName="descripcion">
+      <textarea placeholder="Descripción en Español" type="text" id="descripcion" name="descripcion"
+        formControlName="descripcion"></textarea>
     </div>
 
     <div class="Botones">
       <button mat-stroked-button id="boton-enviar" color="primary"
-        (click)="AddPalabra()">Añadir al diccionario</button>
+        (click)="AddPalabra()" [disabled]="miFormulario.invalid">Añadir al diccionario</button>
       <button mat-stroked-button color="primary" style="margin-left: 15px; color: brown;" [mat-dialog-close]>Cancelar</button>
     </div>
 

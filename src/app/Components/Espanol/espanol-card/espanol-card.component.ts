@@ -10,9 +10,6 @@ import { Espanol } from '../espanol';
 })
 export class EspanolCardComponent implements OnInit {
 
-  palabrasEspanolas: Espanol[] = [];
-
-
   @Input()
   espanol: Espanol = new Espanol();
 
@@ -21,12 +18,14 @@ export class EspanolCardComponent implements OnInit {
 
   @Output()
   delete: EventEmitter<Espanol> = new EventEmitter<Espanol>();
+  
 
   constructor(private DBService:DiccionarioServiceService) { }
 
   ngOnInit(): void {
     var AltaFormateada = moment(this.espanol.fechaAlta).format('DD/MM/YYYY kk:mm');
     var ModFormateada = moment(this.espanol.fechaModificacion).format('DD/MM/YYYY kk:mm');
+    
 
     this.espanol.fechaAlta = AltaFormateada;
 

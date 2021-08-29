@@ -23,6 +23,7 @@ import { AddEnglishComponent } from './Components/Ingles/add-english/add-english
 import { EspanolCardComponent } from './Components/Espanol/espanol-card/espanol-card.component';
 import { FiltroEspanolPipe } from './Pipes/filtro-espanol.pipe';
 import { UpdateModalEspanolComponent } from './Components/Espanol/update-modal-espanol/update-modal-espanol.component';
+import { NotificationsComponentComponent } from './Components/Notificaciones/notifications-component/notifications-component.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UpdateModalEspanolComponent } from './Components/Espanol/update-modal-e
     AddEnglishComponent,
     EspanolCardComponent,
     FiltroEspanolPipe,
-    UpdateModalEspanolComponent
+    UpdateModalEspanolComponent,
+    NotificationsComponentComponent
   ],
   imports: [
     BrowserModule,

@@ -26,8 +26,9 @@ export class EspanolIndexComponent implements OnInit {
       console.log(error);
     }
 
-  }
+    //console.log(localStorage.getItem("Historial"));
 
+  }
 
   openDialog() {
 
@@ -35,6 +36,7 @@ export class EspanolIndexComponent implements OnInit {
 
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
+    dialogConfig.data = this.palabrasEspanolas;
     this.dialog.open(AddModalComponent, dialogConfig);
 }
 
@@ -57,11 +59,10 @@ EliminarPalabra(palabra: string) {
     console.log("Se ha cancelado el borrado.");
   }
 
-
 }
 
 Borrar(palabra: Espanol) {
-  console.log(palabra); 
+  //console.log(palabra); 
   let DeletPalabra = palabra.palabra;
   this.EliminarPalabra(DeletPalabra);
  }
@@ -75,7 +76,7 @@ Borrar(palabra: Espanol) {
   dialogConfig.autoFocus = true;
   dialogConfig.data = palabra;
   this.dialog.open(UpdateModalEspanolComponent, dialogConfig);
-  console.log(palabra); 
+  //console.log(palabra); 
 
  }
 

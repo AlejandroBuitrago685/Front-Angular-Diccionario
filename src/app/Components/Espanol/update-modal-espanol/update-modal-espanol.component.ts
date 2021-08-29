@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DiccionarioServiceService } from '../../diccionario-service.service';
+import { AddModalComponent } from '../add-modal/add-modal.component';
 import { Espanol } from '../espanol';
 
 @Component({
@@ -18,7 +19,7 @@ export class UpdateModalEspanolComponent implements OnInit {
     descripcion: new FormControl(this.data.descripcion, Validators.required)
   });
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private DBService:DiccionarioServiceService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private DBService:DiccionarioServiceService, private dialogRef: MatDialogRef<UpdateModalEspanolComponent>) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +35,10 @@ export class UpdateModalEspanolComponent implements OnInit {
     (error:any) => {
       console.log(error);
     }
+
+    this.dialogRef.close();
+
+    location.reload();
 
   }
   

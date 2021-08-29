@@ -5,5 +5,6 @@ export class Espanol {
     descripcion:string;
     fechaAlta:string;
     fechaModificacion:string;
+    palabrasIngles: [];
 
 }
