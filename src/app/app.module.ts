@@ -21,9 +21,10 @@ import { MyInterceptor } from './Interceptores/Interceptor';
 import { GlobalErrorHandlingService } from './ErrorHandling/error-handling.service';
 import { AddEnglishComponent } from './Components/Ingles/add-english/add-english.component';
 import { EspanolCardComponent } from './Components/Espanol/espanol-card/espanol-card.component';
-import { FiltroEspanolPipe } from './Pipes/filtro-espanol.pipe';
+import { FiltroEspanolPipe } from './Pipes/filtro.pipe';
 import { UpdateModalEspanolComponent } from './Components/Espanol/update-modal-espanol/update-modal-espanol.component';
 import { NotificationsComponentComponent } from './Components/Notificaciones/notifications-component/notifications-component.component';
+import { InglesCardComponent } from './Components/Ingles/ingles-card/ingles-card.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NotificationsComponentComponent } from './Components/Notificaciones/not
     EspanolCardComponent,
     FiltroEspanolPipe,
     UpdateModalEspanolComponent,
-    NotificationsComponentComponent
+    NotificationsComponentComponent,
+    InglesCardComponent
   ],
   imports: [
     BrowserModule,

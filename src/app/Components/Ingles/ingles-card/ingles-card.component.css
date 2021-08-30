@@ -56,10 +56,16 @@
 }
 
 .card__article .description{
-	text-align: center;
 	font-weight: 400;
 	font-size: medium;
-	margin-bottom: 20px;
+	text-align: center;
+}
+
+.card__article .palabraEspanol{
+	font-weight: 700;
+	font-size: large;
+	color: #f5af19;
+	text-align: center;
 }
 
 .card__article label{

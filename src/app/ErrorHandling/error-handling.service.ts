@@ -12,15 +12,23 @@ export class GlobalErrorHandlingService implements ErrorHandler {
     const router = this.injector.get(Router);
     console.warn(`Request URL ERROR: ${router.url}`);
 
+    if(error.status === 200){
+      console.log("Estoy en el if");
+      return;
+    }
+
     if (error instanceof HttpErrorResponse) {
+
       console.error("Backend código de error: ", error.status);
       console.error("Respuesta: ", error.message);
+      router.navigate(['error/' + error.status]);
+      
 
     } else {
       console.error("Ha ocurrido un error: ", error.message);
+      router.navigate(['error/' + error.status]);
+      
     }
-
-    router.navigate(['error/' + error.status]);
 
   }
 

@@ -15,12 +15,21 @@ export class MyInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             catchError((err: HttpErrorResponse) => {
 
-                alert("Ha ocurrido un error grave.\nSerá redirigido a la página de inicio.");
+                if(err.status === 200){
+                    location.reload();
+                    return throwError(err);
+                }
 
-                this.router.navigateByUrl('/');
+                else{
+                    alert("Ha ocurrido un error grave.\n\nSerá redirigido a la página de inicio.");
 
-                return throwError(err);
+                    this.router.navigateByUrl('/');
 
+                    return throwError(err);
+
+                }
+
+                
             })
         );
     }

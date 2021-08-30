@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as moment from 'moment';
 import { DiccionarioServiceService } from '../../diccionario-service.service';
+import { Ingles } from '../../Ingles/ingles';
 import { Espanol } from '../espanol';
 
 @Component({
@@ -9,6 +10,9 @@ import { Espanol } from '../espanol';
   styleUrls: ['./espanol-card.component.css']
 })
 export class EspanolCardComponent implements OnInit {
+  
+
+  ingles: Ingles = new Ingles();
 
   @Input()
   espanol: Espanol = new Espanol();
@@ -23,6 +27,7 @@ export class EspanolCardComponent implements OnInit {
   constructor(private DBService:DiccionarioServiceService) { }
 
   ngOnInit(): void {
+
     var AltaFormateada = moment(this.espanol.fechaAlta).format('DD/MM/YYYY kk:mm');
     var ModFormateada = moment(this.espanol.fechaModificacion).format('DD/MM/YYYY kk:mm');
     

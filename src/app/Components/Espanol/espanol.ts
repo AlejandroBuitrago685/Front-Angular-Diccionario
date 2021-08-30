@@ -1,3 +1,5 @@
+import { Ingles } from "../Ingles/ingles";
+
 export class Espanol {
 
     id:number;
@@ -5,6 +7,6 @@ export class Espanol {
     descripcion:string;
     fechaAlta:string;
     fechaModificacion:string;
-    palabrasIngles: [];
+    palabrasIngles: Ingles[];
 
 }

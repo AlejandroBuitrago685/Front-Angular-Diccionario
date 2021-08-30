@@ -9,7 +9,6 @@
             </div>
 
             <div class="card__meta">
-                <label>Palabra española</label><br>
                 <time>{{espanol.fechaAlta}}</time>
             </div>
 
@@ -17,7 +16,19 @@
                 <h2><label>{{espanol.palabra}}</label></h2>
                 <p class="description">{{espanol.descripcion}}</p><hr>
                 <p style="font-weight: 500;">Última modificación: {{espanol.fechaModificacion}}</p>
-                <p>Palabras en Inglés <br> {{espanol.palabrasIngles}}</p>
+
+                <ng-container *ngIf="espanol.palabrasIngles.length !=0; else inglesEmpty">
+                    <p>Palabras en Inglés:</p>
+                    <label *ngFor ="let pingles of espanol.palabrasIngles; let i = index" [ngClass]="ingles">{{pingles.palabra}}
+                        <label *ngIf="i != espanol.palabrasIngles.length -1">, </label>
+                    </label>
+                </ng-container>
+                
+                <ng-template #inglesEmpty>
+                    <p>Aún no se ha creado la traducción al Inglés</p>
+                </ng-template>
+                
+
             </article>
         </div>
     </div>

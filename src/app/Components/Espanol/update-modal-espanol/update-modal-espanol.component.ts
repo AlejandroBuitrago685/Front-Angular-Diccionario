@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { DiccionarioServiceService } from '../../diccionario-service.service';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 import { Espanol } from '../espanol';
@@ -10,7 +11,7 @@ import { Espanol } from '../espanol';
   templateUrl: './update-modal-espanol.component.html',
   styleUrls: ['./update-modal-espanol.component.css']
 })
-export class UpdateModalEspanolComponent implements OnInit {
+export class UpdateModalEspanolComponent implements OnInit{
 
   espanol = new Espanol();
 
@@ -23,6 +24,7 @@ export class UpdateModalEspanolComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
   EditPalabra(){
    

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { DiccionarioServiceService } from '../../diccionario-service.service';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 import { Espanol } from '../espanol';
@@ -10,16 +11,19 @@ import { UpdateModalEspanolComponent } from '../update-modal-espanol/update-moda
   templateUrl: './espanol-index.component.html',
   styleUrls: ['./espanol-index.component.css']
 })
-export class EspanolIndexComponent implements OnInit {
+export class EspanolIndexComponent implements OnInit, OnDestroy {
+
+  ObternerDatosEspanol : Subscription;
 
   palabrasEspanolas: Espanol[] = [];
   filtercards = "";
 
   constructor(private dialog:MatDialog, private DBService: DiccionarioServiceService) { }
+ 
 
   ngOnInit(): void {
 
-    this.DBService.ObtenerEspanol().subscribe(
+    this.ObternerDatosEspanol = this.DBService.ObtenerEspanol().subscribe(
       res => this.palabrasEspanolas = res
     );
     (error:any) => {
@@ -28,6 +32,10 @@ export class EspanolIndexComponent implements OnInit {
 
     //console.log(localStorage.getItem("Historial"));
 
+  }
+
+  ngOnDestroy(): void {
+    this.ObternerDatosEspanol.unsubscribe();
   }
 
   openDialog() {

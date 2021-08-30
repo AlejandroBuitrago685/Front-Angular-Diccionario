@@ -13,7 +13,7 @@
   <p>Ha ocurrido un error inesperado.</p>
   <div class="buttons-con">
     <div class="action-link-wrap">
-      <a onclick="history.back(-1)" class="link-button link-back-button">Volver</a>
+      <a (click)="back()" class="link-button link-back-button">Volver</a>
       <a [routerLink]="['/']" class="link-button">Ir a la página de inicio</a>
     </div>
   </div>

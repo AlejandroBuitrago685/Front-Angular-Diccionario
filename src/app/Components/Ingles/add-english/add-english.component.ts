@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { DiccionarioServiceService } from '../../diccionario-service.service';
+import { AddModalComponent } from '../../Espanol/add-modal/add-modal.component';
+import { Espanol } from '../../Espanol/espanol';
 import { Ingles } from '../ingles';
 
 @Component({
@@ -9,9 +12,12 @@ import { Ingles } from '../ingles';
   templateUrl: './add-english.component.html',
   styleUrls: ['./add-english.component.css']
 })
-export class AddEnglishComponent implements OnInit {
+export class AddEnglishComponent implements OnInit{
 
-  palabraIngles = new Ingles(); 
+  palabraIngles = new Ingles();
+  palabrasEspanolas: Espanol[] = [];
+  palabrasInglesas: Ingles[] = [];
+
 
   miFormulario = new FormGroup({
     ingles: new FormControl('', Validators.required),
@@ -19,24 +25,62 @@ export class AddEnglishComponent implements OnInit {
   });
 
 
-  constructor( private DBService:DiccionarioServiceService, private dialogRef: MatDialogRef<AddEnglishComponent>) { }
+  constructor(private DBService: DiccionarioServiceService, private dialogRef: MatDialogRef<AddEnglishComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
+    this.palabrasEspanolas = this.data;
+    console.log(this.palabrasEspanolas);
+
+    this.DBService.ObtenerIngles().subscribe(
+      p => this.palabrasInglesas = p
+    )
   }
 
-  AddPalabra(){
+  AddPalabra() {
 
-    var ingles = this.palabraIngles.palabra = this.miFormulario.get("ingles")?.value;
-    this.palabraIngles.palabraEspanol = this.miFormulario.get("espanol")?.value;
+    var palabrasDiccEspanol = [];
+    var palabrasDiccIngles = [];
 
-    this.DBService.addIngles(this.palabraIngles).subscribe(
-      res => alert("Palabra " + ingles + " añadida correctamente.")
-    );
-    (error:any) => {
-      console.log(error);
+    //NO CREO QUE ESTOS BUCLES SEAN LO MÁS ÓPTIMO EN EL CASO DE QUE HAYAN 100000 REGISTROS,
+    //PERO NO HE ENCONTRADO OTRA MANERA MÁS ÓPTIMA (Y HE INVESTIGADO BASTANTE).
+    for (const i in this.palabrasEspanolas) {
+      palabrasDiccEspanol.push(this.palabrasEspanolas[i].palabra)
     }
 
-    this.dialogRef.close();
+    for (const i in this.palabrasInglesas) {
+      palabrasDiccIngles.push(this.palabrasInglesas[i].palabra)
+    }
+
+    //Comprobaciones antes de insertar
+    if (palabrasDiccEspanol.includes(this.miFormulario.get("espanol")?.value)) {
+
+      if (!palabrasDiccIngles.includes(this.miFormulario.get("ingles")?.value)) {
+
+        var ingles = this.palabraIngles.palabra = this.miFormulario.get("ingles")?.value;
+        this.palabraIngles.palabraEspanol = this.miFormulario.get("espanol")?.value;
+
+        this.DBService.addIngles(this.palabraIngles).subscribe(
+          res => alert("Palabra " + ingles + " añadida correctamente.")
+        );
+        (error: any) => {
+          console.log(error);
+        }
+
+        this.dialogRef.close();
+
+        location.reload();
+
+      }
+
+      else {
+        alert("Esta palabra ya existe en este diccionario.")
+      }
+
+    }
+    else {
+      alert("La palabra no existe en el diccionario Español.")
+    }
+
   }
 
 }
