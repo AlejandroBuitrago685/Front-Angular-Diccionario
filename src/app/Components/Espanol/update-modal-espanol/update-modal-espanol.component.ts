@@ -28,11 +28,11 @@ export class UpdateModalEspanolComponent implements OnInit{
 
   EditPalabra(){
    
-    var palabra = this.espanol.palabra = this.miFormulario.get('palabra')?.value;
+    this.espanol.palabra = this.miFormulario.get('palabra')?.value;
     this.espanol.descripcion = this.miFormulario.get('descripcion')?.value;
   
-    this.DBService.updateEspanol(palabra, this.espanol).subscribe(
-      res => alert("Palabra actualizado correctamente.")
+    this.DBService.updateEspanol(this.data.palabra, this.espanol).subscribe(
+      res => alert("Palabra actualizada correctamente.")
     );
     (error:any) => {
       console.log(error);

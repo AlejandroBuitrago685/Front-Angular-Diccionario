@@ -62,7 +62,7 @@ export class DiccionarioServiceService {
 
   //Actualizar Ingles
   updateIngles(palabra:string, contenido:Ingles):Observable<Ingles>{
-    return this.http.put<Ingles>(this.RutaDB + "/ingles/" + palabra, palabra);
+    return this.http.put<Ingles>(this.RutaDB + "/ingles/" + palabra, contenido);
   }
 
 }

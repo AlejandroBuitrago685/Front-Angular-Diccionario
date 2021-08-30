@@ -1,11 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DiccionarioServiceService } from '../../diccionario-service.service';
 import { Espanol } from '../../Espanol/espanol';
 import { UpdateModalEspanolComponent } from '../../Espanol/update-modal-espanol/update-modal-espanol.component';
 import { AddEnglishComponent } from '../add-english/add-english.component';
 import { Ingles } from '../ingles';
+import { UpdateModalInglesComponent } from '../update-modal-ingles/update-modal-ingles.component';
 
 @Component({
   selector: 'app-ingles-index',
@@ -21,7 +23,7 @@ export class InglesIndexComponent implements OnInit, OnDestroy {
   palabrasEspanolas: Espanol[] = [];
   filtercards = "";
 
-  constructor(private dialog:MatDialog, private DBService: DiccionarioServiceService) { }
+  constructor(private dialog:MatDialog, private DBService: DiccionarioServiceService, private ac: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.ObtenerDatosIngles = this.DBService.ObtenerIngles().subscribe(
@@ -90,8 +92,8 @@ export class InglesIndexComponent implements OnInit, OnDestroy {
   
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = palabra;
-    this.dialog.open(UpdateModalEspanolComponent, dialogConfig);
+    dialogConfig.data = {palabraEspanol: palabra.palabraEspanol, palabraIngles:palabra.palabra};
+    this.dialog.open(UpdateModalInglesComponent, dialogConfig);
     //console.log(palabra); 
   
    }

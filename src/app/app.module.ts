@@ -2,13 +2,13 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from './header/header.component';
@@ -25,6 +25,7 @@ import { FiltroEspanolPipe } from './Pipes/filtro.pipe';
 import { UpdateModalEspanolComponent } from './Components/Espanol/update-modal-espanol/update-modal-espanol.component';
 import { NotificationsComponentComponent } from './Components/Notificaciones/notifications-component/notifications-component.component';
 import { InglesCardComponent } from './Components/Ingles/ingles-card/ingles-card.component';
+import { UpdateModalInglesComponent } from './Components/Ingles/update-modal-ingles/update-modal-ingles.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { InglesCardComponent } from './Components/Ingles/ingles-card/ingles-card
     FiltroEspanolPipe,
     UpdateModalEspanolComponent,
     NotificationsComponentComponent,
-    InglesCardComponent
+    InglesCardComponent,
+    UpdateModalInglesComponent
   ],
   imports: [
     BrowserModule,

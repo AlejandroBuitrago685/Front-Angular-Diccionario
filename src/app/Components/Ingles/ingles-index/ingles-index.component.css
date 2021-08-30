@@ -18,10 +18,13 @@
   justify-content: center;
 }
 
+.tarjetas :hover{
+  transform: translate(0px, -5px);
+}
+
 .banner{
     display: flex;
     height: auto;
-    background-color: blueviolet;
     width: 100%;
     margin-top: -40px;
 }
@@ -34,7 +37,6 @@
     margin: 0 auto;
     float: left;
     min-width: 600px;
-    background-color: aqua;
 }
 
 .texto h3{

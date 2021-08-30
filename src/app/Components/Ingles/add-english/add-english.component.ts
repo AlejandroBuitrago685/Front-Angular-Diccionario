@@ -12,7 +12,7 @@ import { Ingles } from '../ingles';
   templateUrl: './add-english.component.html',
   styleUrls: ['./add-english.component.css']
 })
-export class AddEnglishComponent implements OnInit{
+export class AddEnglishComponent implements OnInit {
 
   palabraIngles = new Ingles();
   palabrasEspanolas: Espanol[] = [];
@@ -21,18 +21,22 @@ export class AddEnglishComponent implements OnInit{
 
   miFormulario = new FormGroup({
     ingles: new FormControl('', Validators.required),
-    espanol: new FormControl('', Validators.required),
+    espanol: new FormControl(this.data.palabraEsp, Validators.required),
   });
 
 
-  constructor(private DBService: DiccionarioServiceService, private dialogRef: MatDialogRef<AddEnglishComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private DBService: DiccionarioServiceService, private dialogRef: MatDialogRef<AddEnglishComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.palabrasEspanolas = this.data;
+    //this.palabrasEspanolas = this.data;
     console.log(this.palabrasEspanolas);
 
     this.DBService.ObtenerIngles().subscribe(
       p => this.palabrasInglesas = p
+    )
+
+    this.DBService.ObtenerEspanol().subscribe(
+      p => this.palabrasEspanolas = p
     )
   }
 
@@ -40,6 +44,7 @@ export class AddEnglishComponent implements OnInit{
 
     var palabrasDiccEspanol = [];
     var palabrasDiccIngles = [];
+
 
     //NO CREO QUE ESTOS BUCLES SEAN LO MÁS ÓPTIMO EN EL CASO DE QUE HAYAN 100000 REGISTROS,
     //PERO NO HE ENCONTRADO OTRA MANERA MÁS ÓPTIMA (Y HE INVESTIGADO BASTANTE).
@@ -78,7 +83,17 @@ export class AddEnglishComponent implements OnInit{
 
     }
     else {
-      alert("La palabra no existe en el diccionario Español.")
+      var confirmacion = confirm("La palabra no existe en el diccionario Español. \n\n¿Desea añadirla al diccionario Español?");
+      if (confirmacion) {
+
+        const dialogConfig = new MatDialogConfig();
+
+        dialogConfig.disableClose = false;
+        dialogConfig.autoFocus = true;
+        dialogConfig.data = {palabra: this.miFormulario.get("espanol")?.value} 
+        this.dialog.open(AddModalComponent, dialogConfig);
+      }
+
     }
 
   }

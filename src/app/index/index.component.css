@@ -10,7 +10,7 @@
   .container{
     display: flex;
     justify-content: center;
-    min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 286px);
   }
 
   .tarjetaOpciones{
@@ -19,13 +19,13 @@
     flex-direction: column;
     width: 25%;
     height: 20%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255);
     border-radius: 50px;
     padding: 20px;
     box-shadow: 2px 2px 10px black;
     text-align: center;
     color: #333;
-    margin-top: 70px;
+    margin-top: 20px;
   }
 
   .tarjetaOpciones button{
@@ -90,3 +90,155 @@
     background-color: #1976d2; 
     color: white;
   }
+
+  .projcard-container {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+  .projcard {
+    display: flex;
+    position: relative;
+    width: 40%;
+    height: 300px;
+    margin-top: -190px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    font-size: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 21px 5px rgba(0, 0, 0, .66);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .projcard-innerbox{
+    display: flex;
+  }
+
+  .projcard:hover {
+    box-shadow: 0 34px 32px -33px rgba(0, 0, 0, .18);
+    transform: translate(0px, -3px);
+  }
+  
+  .projcard-img {
+    position: absolute;
+    height: 300px;
+    width: 400px;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s ease;
+  }
+  .projcard:hover .projcard-img {
+    transform: scale(1.05) rotate(1deg);
+  }
+  .projcard:hover .projcard-bar {
+    width: 70px;
+  }
+  .projcard-textbox {
+    position: absolute;
+    padding-right:20px;
+    padding-bottom: 30px;
+    top: 7%;
+    bottom: 7%;
+    left: 430px;
+    width: calc(100% - 470px);
+    font-size: 15px;
+  }
+ 
+  .projcard-textbox::before,
+  .projcard-textbox::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #fff;
+    top: -20%;
+    left: -55px;
+    height: 140%;
+    width: 60px;
+    transform: rotate(8deg);
+  }
+
+  .projcard-textbox::after {
+    display: none;
+    left: initial;
+    right: -55px;
+  }
+ 
+  .projcard-textbox * {
+    position: relative;
+  }
+  .projcard-title {
+    font-family: 'Voces', 'Open Sans', arial, sans-serif;
+    font-size: 20px;
+  }
+  .projcard-subtitle {
+    margin-top: 8px;
+    font-family: 'Voces', 'Open Sans', arial, sans-serif;
+    color: #888;
+  }
+  .projcard-bar {
+    left: -2px;
+    width: 50px;
+    height: 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #424242;
+    transition: width 0.2s ease;
+  }
+
+  .projcard-color .projcard-bar { background-color: #f5af19; }
+  .projcard-color::before { background-image: linear-gradient(-70deg, #f5af19, transparent 50%); }
+  .projcard-color:nth-child(2n)::before { background-image: linear-gradient(-250deg, #f5af19, transparent 50%); }
+  
+
+.heading h4 {
+    color: #fff;
+    margin-bottom: 50px;
+    font-size: 50px;
+}
+
+.client-count-wrp-inner {
+    display: flex;
+    justify-content: center;
+}
+
+.cards{
+  text-align: center;
+  padding: 40px;
+}
+
+.cards h4 {
+    color: #fff;
+    font-size: 70px;
+    line-height: 65px;
+}
+
+.cards:first-child h4 {
+    color: #e4a600;
+}
+
+.cards:last-child h4 {
+    color: #c81010;
+}
+
+.cards:nth-child(2) h4 {
+    color: #48b84b;
+}
+
+.cards:nth-child(3) h4 {
+    color: #28a5df;
+}
+
+.cards p {
+    color: #fff;
+    font-size: 20px;
+}
+
+
+ 

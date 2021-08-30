@@ -1,0 +1,26 @@
+<div class="caja1">
+  <form id="formulario" [formGroup]="miFormulario">
+
+    <h3 class="TituloModal">Actualizar la palabra <strong>{{data.palabraIngles}}</strong></h3>
+    <hr>
+
+    <div>
+      <label>Palabra</label>
+      <input placeholder="Palabra en Inglés" type="text" name="palabraIngles" id="palabraIngles"
+        formControlName="palabraIngles">
+      <br>
+      <label>Traducción al español</label>
+      <input placeholder="Palabra en Español" type="text" id="palabraEspanol" name="palabraEspanol"
+        formControlName="palabraEspanol">
+
+    </div>
+
+    <div class="Botones">
+      <button mat-stroked-button id="boton-enviar" color="primary" (click)="EditPalabra()"
+        [disabled]="miFormulario.invalid">Actualizar palabra</button>
+      <button mat-stroked-button color="primary" style="margin-left: 15px; color: brown;"
+        [mat-dialog-close]>Cancelar</button>
+    </div>
+
+  </form>
+</div>

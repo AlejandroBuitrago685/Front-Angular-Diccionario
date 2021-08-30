@@ -14,7 +14,7 @@
       </div>
   
       <div class="Botones">
-        <button mat-stroked-button id="boton-enviar" color="primary"
+        <button mat-stroked-button id="boton-enviar" color="primary" [disabled]="miFormulario.invalid"
           (click)="AddPalabra()">Añadir al diccionario</button>
         <button mat-stroked-button color="primary" style="margin-left: 15px; color: brown;" [mat-dialog-close]>Cancelar</button>
       </div>

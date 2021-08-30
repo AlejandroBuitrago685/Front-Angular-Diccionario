@@ -17,15 +17,15 @@
                 <p class="description">{{espanol.descripcion}}</p><hr>
                 <p style="font-weight: 500;">Última modificación: {{espanol.fechaModificacion}}</p>
 
-                <ng-container *ngIf="espanol.palabrasIngles.length !=0; else inglesEmpty">
-                    <p>Palabras en Inglés:</p>
-                    <label *ngFor ="let pingles of espanol.palabrasIngles; let i = index" [ngClass]="ingles">{{pingles.palabra}}
+                <ng-container *ngIf="espanol.palabrasIngles.length !=0; else inglesEmpty"><hr>
+                    <p style="font-weight: 600;">Traducción al Inglés:</p>
+                    <label style="font-weight: 600;" *ngFor ="let pingles of espanol.palabrasIngles; let i = index" [ngClass]="ingles">{{pingles.palabra}}
                         <label *ngIf="i != espanol.palabrasIngles.length -1">, </label>
                     </label>
                 </ng-container>
                 
                 <ng-template #inglesEmpty>
-                    <p>Aún no se ha creado la traducción al Inglés</p>
+                    <p>Aún no se ha creado la traducción al Inglés, puedes crearla desde <a style="color: rgb(82, 82, 247); cursor: pointer;" (click)="CrearTraduccion()">aquí.</a></p>
                 </ng-template>
                 
 

@@ -18,6 +18,10 @@
     justify-content: center;
   }
 
+  .tarjetas :hover{
+    transform: translate(0px, -3px);
+  }
+
   .banner{
       display: flex;
       flex-direction: row;

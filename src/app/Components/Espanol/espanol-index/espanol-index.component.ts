@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DiccionarioServiceService } from '../../diccionario-service.service';
+import { Ingles } from '../../Ingles/ingles';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 import { Espanol } from '../espanol';
 import { UpdateModalEspanolComponent } from '../update-modal-espanol/update-modal-espanol.component';
@@ -13,20 +15,21 @@ import { UpdateModalEspanolComponent } from '../update-modal-espanol/update-moda
 })
 export class EspanolIndexComponent implements OnInit, OnDestroy {
 
-  ObternerDatosEspanol : Subscription;
+  ObternerDatosEspanol: Subscription;
 
   palabrasEspanolas: Espanol[] = [];
   filtercards = "";
 
-  constructor(private dialog:MatDialog, private DBService: DiccionarioServiceService) { }
- 
+  constructor(private dialog: MatDialog, private DBService: DiccionarioServiceService, private ac: ActivatedRoute) { }
+
 
   ngOnInit(): void {
+
 
     this.ObternerDatosEspanol = this.DBService.ObtenerEspanol().subscribe(
       res => this.palabrasEspanolas = res
     );
-    (error:any) => {
+    (error: any) => {
       console.log(error);
     }
 
@@ -46,47 +49,71 @@ export class EspanolIndexComponent implements OnInit, OnDestroy {
     dialogConfig.autoFocus = true;
     dialogConfig.data = this.palabrasEspanolas;
     this.dialog.open(AddModalComponent, dialogConfig);
-}
+  }
 
-EliminarPalabra(palabra: string) {
-  var confirmacion = confirm("¿Está seguro de que quiere borrar esta palabra?");
+  EliminarPalabraEspanola(palabraEspanol: string) {
+    var confirmacion = confirm("¿Está seguro de que quiere borrar esta palabra?");
 
-  if (confirmacion) {
+    if (confirmacion) {
 
-    this.DBService.deleteEspanol(palabra).subscribe(
-      resp => {
-        this.palabrasEspanolas = this.palabrasEspanolas.filter(p => p.palabra != palabra)
+      this.DBService.deleteEspanol(palabraEspanol).subscribe(
+        resp => {
+          this.palabrasEspanolas = this.palabrasEspanolas.filter(p => p.palabra != palabraEspanol)
+        }
+      );
+      (error: any) => {
+        console.log(error);
       }
-    );
-    (error: any) => {
-      console.log(error);
+
+
+    }
+    else {
+      console.log("Se ha cancelado el borrado.");
     }
 
   }
-  else {
-    console.log("Se ha cancelado el borrado.");
+
+  Borrar(palabraEspanol: Espanol) {
+
+    var TraduccionIngles = [];
+    let DeletePalabraEspanol = palabraEspanol.palabra
+    let DeletePalabraIngles = palabraEspanol.palabrasIngles;
+
+
+    //Eliminar todas las palabras en Inglés relaccionadas antes de borrar la española
+    for (const i in DeletePalabraIngles) {
+      TraduccionIngles.push(DeletePalabraIngles[i].palabra)
+    }
+
+
+    for (var i of TraduccionIngles) {
+      this.DBService.deleteIngles(i).subscribe(
+        resp => {
+          console.log("Borrado Ingles");
+        }
+      );
+      (error: any) => {
+        console.log(error);
+      }
+
+    }
+    
+    this.EliminarPalabraEspanola(DeletePalabraEspanol);
+
   }
 
-}
 
-Borrar(palabra: Espanol) {
-  //console.log(palabra); 
-  let DeletPalabra = palabra.palabra;
-  this.EliminarPalabra(DeletPalabra);
- }
+  EditarPalabra(palabra: Espanol) {
 
+    const dialogConfig = new MatDialogConfig();
 
- EditarPalabra(palabra: Espanol) {
-  
-  const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = palabra;
+    this.dialog.open(UpdateModalEspanolComponent, dialogConfig);
+    //console.log(palabra); 
 
-  dialogConfig.disableClose = false;
-  dialogConfig.autoFocus = true;
-  dialogConfig.data = palabra;
-  this.dialog.open(UpdateModalEspanolComponent, dialogConfig);
-  //console.log(palabra); 
-
- }
+  }
 
 
 

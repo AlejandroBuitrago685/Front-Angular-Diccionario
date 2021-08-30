@@ -20,7 +20,11 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@controls/radio": [ "src/app/shared/components/forms/radio-control/radio-control.component" ],
+      "@environment/*": [ "src/environments/*" ],
+  }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

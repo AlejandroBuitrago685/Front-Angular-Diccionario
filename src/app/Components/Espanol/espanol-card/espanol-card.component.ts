@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { DiccionarioServiceService } from '../../diccionario-service.service';
+import { AddEnglishComponent } from '../../Ingles/add-english/add-english.component';
 import { Ingles } from '../../Ingles/ingles';
+import { AddModalComponent } from '../add-modal/add-modal.component';
 import { Espanol } from '../espanol';
 
 @Component({
@@ -24,7 +27,7 @@ export class EspanolCardComponent implements OnInit {
   delete: EventEmitter<Espanol> = new EventEmitter<Espanol>();
   
 
-  constructor(private DBService:DiccionarioServiceService) { }
+  constructor(private DBService:DiccionarioServiceService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -41,6 +44,15 @@ export class EspanolCardComponent implements OnInit {
       this.espanol.fechaModificacion = ModFormateada;
     }
 
+  }
+
+  CrearTraduccion(){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {palabraEsp: this.espanol.palabra}
+    this.dialog.open(AddEnglishComponent, dialogConfig);
   }
 
 }
