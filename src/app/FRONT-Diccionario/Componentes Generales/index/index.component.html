@@ -16,66 +16,103 @@
 
     <app-header></app-header>
 
-    <div class="container">
-        <div class="tarjetaOpciones">
-            <h2 class="tituloAdd">¡Bienvenido!</h2>
-            <hr>
-            <p style="margin-bottom: 10px; font-size: medium;">Esta aplicación te ayudará a gestionar un diccionario de
-                Inglés-Español de manera rápida, fácil y cómoda.</p>
-            <img width="70" alt="Angular Logo" style="align-self: center;"
-                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
-            <p style="margin-bottom: 10px; margin-top: 10px; font-weight: 600;">¡Comencemos!</p>
-            <button mat-raised-button style="color: #333; border: 1px solid;"
-                (click)="drawer.toggle()">Administrar</button>
-        </div>
-    </div>
+    <div class="main-landing-message">
+        <h1>Gestiona tu diccionario</h1>
+        <h2>Gestiona de manera fácil y cómoda tu diccionario Online.</h2>
+        <p>Esta aplicación está desarollada en Angular <br> y permite la gestión y administración de un diccionario <br> de palabras Inglés-Español.</p>
+        <button mat-raised-button class="button-landing" (click)="drawer.toggle()" >EMPEZAR A GESTIONAR</button>
+      </div>
 
     <div class="projcard-container">
         <div class="projcard projcard-color" [routerLink]="['espanol']">
             <div class="projcard-innerbox">
-                <img class="projcard-img" src="https://cdn.cooltra.com/uploads/2018/04/7f486c54ee48bd265c4520c0174c1130906ef662.jpg" alt="Imagen Madrid"/>
+                <img class="projcard-img"
+                    src="https://cdn.cooltra.com/uploads/2018/04/7f486c54ee48bd265c4520c0174c1130906ef662.jpg"
+                    alt="Imagen Madrid" />
                 <div class="projcard-textbox">
                     <div class="projcard-title">Diccionario Español</div>
                     <div class="projcard-subtitle">Gestiona el diccionario español.</div>
                     <div class="projcard-bar"></div>
-                    <div class="projcard-description">Desde aquí podrás gestionar de una manera muy simple y rápida un diccionario español completo, podrás agregar, editar y eliminar palabras, también podrás acceder a los detalles de las mismas.</div>
+                    <div class="projcard-description">Desde aquí podrás gestionar de una manera muy simple y rápida un
+                        diccionario español completo, podrás agregar, editar y eliminar palabras, también podrás acceder
+                        a los detalles de las mismas.</div>
                 </div>
             </div>
         </div>
 
         <div class="projcard projcard-color">
             <div class="projcard-innerbox" [routerLink]="['ingles']">
-                <img class="projcard-img" src="http://1.bp.blogspot.com/-6g_q_jijxJE/VdZcfUfXurI/AAAAAAAAB_E/HlAPbH279_U/s1600/londres.jpg" alt="Imagen Londres"/>
+                <img class="projcard-img"
+                    src="http://1.bp.blogspot.com/-6g_q_jijxJE/VdZcfUfXurI/AAAAAAAAB_E/HlAPbH279_U/s1600/londres.jpg"
+                    alt="Imagen Londres" />
                 <div class="projcard-textbox">
                     <div class="projcard-title">Diccionario Inglés</div>
                     <div class="projcard-subtitle">Gestiona el diccionario inglés.</div>
                     <div class="projcard-bar"></div>
-                    <div class="projcard-description">Desde aquí podrás gestionar de una manera muy simple y rápida un diccionario inglés completo, podrás agregar, editar y eliminar palabras, también podrás acceder a los detalles de las mismas y traducirlas en español.</div>
+                    <div class="projcard-description">Desde aquí podrás gestionar de una manera muy simple y rápida un
+                        diccionario inglés completo, podrás agregar, editar y eliminar palabras, también podrás acceder
+                        a los detalles de las mismas y traducirlas en español.</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="client-count-wrp mt-100" style=" background-color: #333;">
-        <h2 style="color: white; text-align: center; padding: 20px; font-size: 20px;">Datos curiosos</h2>
-            <div class="client-count-wrp-inner">
-                
-                <div class="cards">
-                    <h4>{{hispanoHablantes + " M."}}</h4>
-                    <p>Hispanohablantes</p>
-                </div>
+    <div class="features">
+        <div class="container">
+          <div class="col four">
+            <h1><span class="material-icons icon">add</span></h1>
+            <h1 class="service">Crea nuevas palabras</h1>
+            <p>Añade nuevas palabras a los diccionarios de manera intuitiva.</p>
+          </div>
+          <div class="col four">
+            <h1><span class="material-icons icon">translate</span></h1>
+            <h1 class="service">Añade traducciones</h1>
+            <p>Crea traducciones de inglés a español mediante una sencilla interfaz.</p>
+          </div>
+          <div class="col one">
+            <h1><span class="material-icons icon">refresh</span></h1>
+            <h1 class="service">Actualiza las traducciones</h1>
+            <p>¿Te has equivocado o ha cambiado alguna traducción?, <br> no te preocupes, podrás actualizar una traducción cuando quieras.</p>
+          </div>
+        </div>
+      </div>
 
-                <div class="cards">
-                    <h4>{{hablantesIng + " M."}}</h4>
-                    <p>Angloparlantes</p>
-                </div>
 
-                <div class="cards">
-                    <h4>{{totales}}</h4>
-                    <p>Británicos residentes en España</p>
-                </div>
-    
+    <div class="count-wrp mt-100" style=" background-color: #333; padding:50px;">
+        <h2 style="color: white; text-align: center; font-size: 30px; margin-bottom: 10px;">Datos curiosos</h2>
+        <div class="count-wrp-inner">
+
+            <div class="cards">
+                <h4>{{hispanoHablantes + " M."}}</h4>
+                <p>Hispanohablantes</p>
             </div>
+
+            <div class="cards">
+                <h4>{{hablantesIng + " M."}}</h4>
+                <p>Angloparlantes</p>
+            </div>
+
+            <div class="cards">
+                <h4>{{totales}}</h4>
+                <p>Británicos residentes en España</p>
+            </div>
+        </div>
+        <div class="info-card">
+            <div class="meta">
+                <div class="photo"
+                    style="background-image: url(https://2.bp.blogspot.com/-q2uY_JFvTUU/WVLK4yL4AWI/AAAAAAAAgbE/WPrzBCH0ZFQ3blEjssYWKzAizLNtp-9_wCLcBGAs/s1600/donde-estudiar-ingles-en-bogota-28-cursos-e-institutos.jpg)">
+                </div>
+
+            </div>
+            <div class="description">
+                <h1>El inglés, top 3 mundial.</h1>
+                <h2>Es el tercer idioma más hablado en el mundo.</h2>
+                <p> El inglés es el tercer idioma del mundo en número de hablantes que lo tienen como lengua materna
+                    (entre trescientos y cuatrocientos millones de personas), así como el tercero más hablado, por
+                    detrás del mandarín y el de España, si se cuenta asimismo a quienes lo tienen como segunda lengua,
+                    que son 200 millones de personas más.</p>
+            </div>
+        </div>
     </div>
 
     <app-footer></app-footer>
