@@ -110,7 +110,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-top: -35px;
+  margin-top: 60px;
   padding-top: 20px;
   padding-bottom: 5px;
   background-color: #333;
@@ -157,6 +157,17 @@ border-radius: 50px;
 outline: none;
 font-size: 12px;
 color: white;
+}
+
+::-webkit-input-placeholder { 
+  color: white;
+  font-family: Roboto;
+}
+::-moz-placeholder { 
+  color: #333;
+}
+:-ms-input-placeholder { 
+  color: #333;
 }
 
 /*-----------------------------------------------*/

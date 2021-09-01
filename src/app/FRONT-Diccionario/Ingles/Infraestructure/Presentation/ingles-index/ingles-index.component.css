@@ -23,14 +23,3 @@
 .tarjetas :hover{
   transform: translate(0px, -3px);
 }
-
-::-webkit-input-placeholder { 
-  color: white;
-  font-family: Roboto;
-}
-::-moz-placeholder { 
-  color: #333;
-}
-:-ms-input-placeholder { 
-  color: #333;
-}

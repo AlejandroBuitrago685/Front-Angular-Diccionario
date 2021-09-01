@@ -2,6 +2,7 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Ingles } from 'src/app/FRONT-Diccionario/Ingles/Application/ingles';
 import { DiccionarioServiceService } from '../../../../diccionario-service.service';
 import { Espanol } from '../../../Application/espanol';
 
@@ -20,6 +21,7 @@ export class AddModalComponent implements OnInit {
   constructor(private router: Router, private DBService: DiccionarioServiceService, @Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<AddModalComponent>) { }
 
   palabraEspanol = new Espanol();
+  palabraIngles = new Ingles();
   palabrasEspanolas: Espanol[] = [];
 
   ngOnInit(): void {
@@ -32,6 +34,8 @@ export class AddModalComponent implements OnInit {
 
     var palabrasDiccEspanol = [];
     var palabraDesdeIngles: string = this.data.palabra;
+    this.palabraIngles.palabra = this.data.palabraIngles;
+    this.palabraIngles.palabraEspanol = this.data.palabra;
 
     console.log(typeof palabraDesdeIngles)
 
@@ -56,6 +60,13 @@ export class AddModalComponent implements OnInit {
       (error: any) => {
         console.log(error);
       }
+
+      /*this.DBService.addIngles(this.palabraIngles).subscribe(
+        res => console.log("Sucess")
+      );
+      (error: any) => {
+        console.log(error);
+      }*/
 
       this.dialogRef.close();
 

@@ -90,7 +90,7 @@ export class AddEnglishComponent implements OnInit {
 
         dialogConfig.disableClose = false;
         dialogConfig.autoFocus = true;
-        dialogConfig.data = {palabra: this.miFormulario.get("espanol")?.value} 
+        dialogConfig.data = {palabra: this.miFormulario.get("espanol")?.value, palabraIngles:this.miFormulario.get("ingles")?.value} 
         this.dialog.open(AddModalComponent, dialogConfig);
       }
 
