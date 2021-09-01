@@ -91,12 +91,25 @@ export class InglesIndexComponent implements OnInit, OnDestroy {
   
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = {palabraEspanol: palabra.palabraEspanol, palabraIngles:palabra.palabra};
+    dialogConfig.data = {palabraEspanol: palabra.palabraEspanol};
     this.dialog.open(UpdateModalInglesComponent, dialogConfig);
     //console.log(palabra); 
   
    }
 
+   DeleteAll() {
 
+    var confirmacion = confirm("¿Está seguro de que quiere borrar todos los datos de los diccionarios? \n\nEsto será IRREVERSIBLE.");
+
+    if (confirmacion) {
+      this.DBService.deleteAllEspanol().subscribe(
+        resp => console.log("Sucess")
+      );
+      (error: any) => {
+        console.log(error);
+      }
+    }
+
+  }
 
 }

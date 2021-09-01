@@ -28,7 +28,7 @@ export class AddEnglishComponent implements OnInit {
   constructor(private DBService: DiccionarioServiceService, private dialogRef: MatDialogRef<AddEnglishComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    //this.palabrasEspanolas = this.data;
+    this.palabrasEspanolas = this.data;
     console.log(this.palabrasEspanolas);
 
     this.DBService.ObtenerIngles().subscribe(

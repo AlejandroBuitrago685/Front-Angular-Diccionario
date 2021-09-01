@@ -8,6 +8,10 @@
         <div class="dicc-Opciones">
             <button mat-raised-button style="color: #333; border: 1px solid; right: 0; height: 35px;"
                 (click)="openDialog()">Añadir palabra</button>
+
+                <button mat-raised-button style="color: white; background-color: brown; height: 35px; margin-left: 10px;"
+                (click)="DeleteAll()">Limpiar todos los diccionarios</button>
+
             <div>
                 <div class="dicc-buscador">
                     <input type="text" class="dicc-input" placeholder="Palabra a buscar..." [(ngModel)]="filtercards">
@@ -20,7 +24,6 @@
 <div class="contenido">
 
     
-
     <ng-container *ngIf="palabrasEspanolas.length !=0; else DictionaryEmpty">
         <div class="tarjetas">
             <div class="caja-espanol" style="margin-left: 20px;"
@@ -43,7 +46,7 @@
                     </div>
 
                     <hr style="margin-top: 10px">
-                    <label style="padding: 10px;">Lamentablemente no hemos podido encontrar ningún estudiante en la base dedatos.</label><br>
+                    <label style="padding: 10px;">Lamentablemente no hemos podido encontrar ninguna palabra en la base de datos.</label><br>
                     <img src="https://image.flaticon.com/icons/png/512/752/752755.png" width="50px"
                         style="padding: 10px;" />
                 </div>

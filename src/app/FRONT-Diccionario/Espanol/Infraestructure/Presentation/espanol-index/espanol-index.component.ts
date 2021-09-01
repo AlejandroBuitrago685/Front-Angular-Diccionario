@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -19,8 +19,14 @@ export class EspanolIndexComponent implements OnInit, OnDestroy {
   palabrasEspanolas: Espanol[] = [];
   filtercards = "";
 
-  constructor(private dialog: MatDialog, private DBService: DiccionarioServiceService, private ac: ActivatedRoute) { }
+  constructor(private dialog: MatDialog, private DBService: DiccionarioServiceService, private ac: ActivatedRoute, private cdref: ChangeDetectorRef) { }
 
+  
+  ngAfterContentChecked() {
+
+    this.cdref.detectChanges();
+
+  }
 
   ngOnInit(): void {
 
@@ -32,7 +38,6 @@ export class EspanolIndexComponent implements OnInit, OnDestroy {
       console.log(error);
     }
 
-    //console.log(localStorage.getItem("Historial"));
 
   }
 
@@ -46,7 +51,7 @@ export class EspanolIndexComponent implements OnInit, OnDestroy {
 
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = this.palabrasEspanolas;
+    dialogConfig.data = { palabrasEspanolas: this.palabrasEspanolas }
     this.dialog.open(AddModalComponent, dialogConfig);
   }
 
@@ -96,7 +101,7 @@ export class EspanolIndexComponent implements OnInit, OnDestroy {
       }
 
     }
-    
+
     this.EliminarPalabraEspanola(DeletePalabraEspanol);
 
   }
@@ -114,6 +119,19 @@ export class EspanolIndexComponent implements OnInit, OnDestroy {
 
   }
 
+  DeleteAll() {
 
+    var confirmacion = confirm("¿Está seguro de que quiere borrar todos los datos de este diccionario? \n\nEsto será IRREVERSIBLE. \n\nNota: También se borrarán las palabras relaccionadas en inglés.");
+
+    if (confirmacion) {
+      this.DBService.deleteAllEspanol().subscribe(
+        resp => console.log("Sucess")
+      );
+      (error: any) => {
+        console.log(error);
+      }
+    }
+
+  }
 
 }

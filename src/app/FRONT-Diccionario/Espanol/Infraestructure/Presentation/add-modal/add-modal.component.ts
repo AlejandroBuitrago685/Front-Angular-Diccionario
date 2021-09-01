@@ -21,23 +21,23 @@ export class AddModalComponent implements OnInit {
   constructor(private router: Router, private DBService: DiccionarioServiceService, @Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<AddModalComponent>) { }
 
   palabraEspanol = new Espanol();
-  palabraIngles = new Ingles();
+  //palabraIngles = new Ingles();
   palabrasEspanolas: Espanol[] = [];
 
   ngOnInit(): void {
-    this.palabrasEspanolas = this.data;
-    console.log(this.palabrasEspanolas);
+    this.palabrasEspanolas = this.data.palabrasEspanolas;
+    //console.log(this.palabrasEspanolas);
+    
   }
 
 
   AddPalabra() {
 
     var palabrasDiccEspanol = [];
-    var palabraDesdeIngles: string = this.data.palabra;
-    this.palabraIngles.palabra = this.data.palabraIngles;
-    this.palabraIngles.palabraEspanol = this.data.palabra;
+    //var palabraDesdeIngles: string = this.data.palabra;
 
-    console.log(typeof palabraDesdeIngles)
+    //this.palabraIngles.palabra = this.data.palabraIngles;
+    //this.palabraIngles.palabraEspanol = this.data.palabra;
 
     //NO CREO QUE ESTE BUCLE SEA LO MÁS ÓPTIMO EN EL CASO DE QUE HAYAN 100000 REGISTROS,
     //PERO NO HE ENCONTRADO OTRA MANERA MÁS ÓPTIMA (Y HE INVESTIGADO BASTANTE).
@@ -55,19 +55,28 @@ export class AddModalComponent implements OnInit {
       this.palabraEspanol.descripcion = this.miFormulario.get("descripcion")?.value;
 
       this.DBService.addEspanol(this.palabraEspanol).subscribe(
-        res => {alert("Palabra " + palabra + " añadida correctamente.")}
+        res => { alert("Palabra " + palabra + " añadida correctamente.") }
       );
       (error: any) => {
         console.log(error);
       }
+     
 
-      /*this.DBService.addIngles(this.palabraIngles).subscribe(
+    //ESTO FUNCIONA CUANDO QUIERE
+    /*if(this.data.palabraIngles === null || this.data.palabraIngles === undefined || this.data.palabra === null || this.data.palabra === undefined){
+
+
+    } else {
+      console.log("ESTO ES EL IF")
+
+      this.DBService.addIngles(this.palabraIngles).subscribe(
         res => console.log("Sucess")
       );
       (error: any) => {
         console.log(error);
-      }*/
-
+      }
+    }*/
+       
       this.dialogRef.close();
 
       location.reload();

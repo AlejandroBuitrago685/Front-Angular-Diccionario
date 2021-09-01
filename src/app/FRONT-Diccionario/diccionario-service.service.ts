@@ -65,4 +65,9 @@ export class DiccionarioServiceService {
     return this.http.put<Ingles>(this.RutaDB + "/ingles/" + palabra, contenido);
   }
 
+  //Borrar todo Español
+  deleteAllEspanol():Observable<Espanol>{
+    return this.http.delete<Espanol>(this.RutaDB + '/espanol/');
+  }
+
 }
