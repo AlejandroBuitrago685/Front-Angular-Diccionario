@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/app/FRONT-Diccionario/Auth/Services/user';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register-modal',
@@ -33,11 +34,15 @@ export class RegisterModalComponent implements OnInit {
 
       console.log(RegisterModalComponent.usuarios);
 
-      alert("Usuario creado correctamente");
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Usuario creado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      
       this.dialogRef.close();
-    }
-    else{
-      alert("Las contraseñas introducidas no coinciden");
     }
 
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 import { AuthGuard } from '../../Guards/auth.guard';
 import { RegisterModalComponent } from '../register-modal/register-modal.component';
 import { LoginService } from '../Services/login.service';
@@ -42,7 +43,10 @@ export class LoginComponent implements OnInit {
     }
     
     else{
-      alert("Usuario o contraseña incorrecto");
+      Swal.fire({
+        icon: 'error',
+        title: 'Usuario o contraseña incorrectos.'
+    })
     }
     
   }

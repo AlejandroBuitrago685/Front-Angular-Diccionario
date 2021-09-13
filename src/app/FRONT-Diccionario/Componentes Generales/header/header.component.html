@@ -1,3 +1,5 @@
+
+<ng-container *ngIf="logueado == false; else login">
 <div class="header-contenido">
   <div class="header-toolbar" role="banner">
     <img width="40" alt="Angular Logo" [routerLink]="['']" style="cursor: pointer;"
@@ -9,8 +11,29 @@
         <li><p [routerLink]="['']">Inicio</p></li>
         <li><p [routerLink]="['/ingles']">Diccionario Inglés</p></li>
         <li><p [routerLink]="['/espanol']">Diccionario Español</p></li>
+        <li id="login" ><p [routerLink]="['/login']">Login</p></li>
       </ul>
     </nav>
-
   </div>
 </div>
+</ng-container>
+
+
+<ng-template #login>
+  <div class="header-contenido">
+    <div class="header-toolbar" role="banner">
+      <img width="40" alt="Angular Logo" [routerLink]="['']" style="cursor: pointer;"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+      <span style="margin-left: 10px; font-size: medium;">Diccionario Angular</span>
+  
+      <nav role="navigation" style="right: 0; margin-right: 50px; display: flex; position: absolute;">
+        <ul style="list-style: none; display: inline-flex;">
+          <li><p [routerLink]="['']">Inicio</p></li>
+          <li><p [routerLink]="['/ingles']">Diccionario Inglés</p></li>
+          <li><p [routerLink]="['/espanol']">Diccionario Español</p></li>
+          <li id="logout"><p (click)="CerrarSesion()">Logout</p></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</ng-template>
