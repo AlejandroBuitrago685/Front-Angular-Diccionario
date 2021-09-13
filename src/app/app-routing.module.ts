@@ -6,12 +6,15 @@ import { GlobalErrorComponent } from './FRONT-Diccionario/ErrorHandling/global-e
 import { EspanolResolver } from './FRONT-Diccionario/Espanol/Infraestructure/Resolvers/espanol.resolver';
 import { InglesResolver } from './FRONT-Diccionario/Ingles/Infraestructure/Resolvers/ingles.resolver';
 import { IndexComponent } from './FRONT-Diccionario/Componentes Generales/index/index.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component:  IndexComponent},
-  { path: 'ingles', component:  InglesIndexComponent, resolve:{diccEng: InglesResolver}},
-  { path: 'espanol', component:  EspanolIndexComponent, resolve:{diccEsp: EspanolResolver}},
-  { path: 'error/:error', component:  GlobalErrorComponent}
+  { path: 'ingles', component:  InglesIndexComponent, resolve:{diccEng: InglesResolver}, canActivate:[AuthGuard]},
+  { path: 'espanol', component:  EspanolIndexComponent, resolve:{diccEsp: EspanolResolver}, canActivate:[AuthGuard]},
+  { path: 'error/:error', component:  GlobalErrorComponent},
+  { path: 'login', component:  LoginComponent}
 ];
 
 @NgModule({

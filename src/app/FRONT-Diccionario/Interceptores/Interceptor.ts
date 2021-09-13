@@ -28,7 +28,6 @@ export class MyInterceptor implements HttpInterceptor {
                     return throwError(err);
 
                 }
-
                 
             })
         );

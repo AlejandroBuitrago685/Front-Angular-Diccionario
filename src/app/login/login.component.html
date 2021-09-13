@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="caja1">
+    <form id="formulario" [formGroup]="miFormulario">
+  
+      <h3 class="TituloModal">Iniciar Sesión</h3>
+      <label style="color: brown;">Zona restringida para usuarios logueados, por favor, inicie sesión para ver el contenido.</label>
+      <hr>
+  
+      <div>
+        <label>Email</label>
+        <input placeholder="ejemplo@gmail.com" type="email" name="email" id="email" formControlName="email">
+        <br>
+        <label>Contraseña</label>
+        <input type="password" id="pass" name="pass" formControlName="pass"/>
+      </div>
+  
+      <div class="Botones">
+        <button mat-stroked-button id="boton-enviar" color="primary"
+          (click)="Login()" [disabled]="miFormulario.invalid">Iniciar sesión</button>
+        <button mat-stroked-button color="primary" style="margin-left: 15px; color: brown;" [routerLink]="['/']">Cancelar</button>
+      </div>
+  
+    </form>
+  </div>
+  <app-footer></app-footer>

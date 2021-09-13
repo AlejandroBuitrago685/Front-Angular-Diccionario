@@ -25,6 +25,7 @@ import { FiltroEspanolPipe } from './FRONT-Diccionario/Pipes/filtro.pipe';
 import { UpdateModalEspanolComponent } from './FRONT-Diccionario/Espanol/Infraestructure/Presentation/update-modal-espanol/update-modal-espanol.component';
 import { InglesCardComponent } from './FRONT-Diccionario/Ingles/Infraestructure/Presentation/ingles-card/ingles-card.component';
 import { UpdateModalInglesComponent } from './FRONT-Diccionario/Ingles/Infraestructure/Presentation/update-modal-ingles/update-modal-ingles.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UpdateModalInglesComponent } from './FRONT-Diccionario/Ingles/Infraestr
     FiltroEspanolPipe,
     UpdateModalEspanolComponent,
     InglesCardComponent,
-    UpdateModalInglesComponent
+    UpdateModalInglesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
