@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { DiccionarioServiceService } from 'src/app/FRONT-Diccionario/diccionario-service.service';
+import { DiccionarioServiceService } from 'src/app/FRONT-Diccionario/Componentes Generales/Services/diccionario-service.service';
 
 @Injectable({
   providedIn: 'root'

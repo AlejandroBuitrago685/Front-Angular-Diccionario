@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Ingles } from 'src/app/FRONT-Diccionario/Ingles/Application/ingles';
-import { DiccionarioServiceService } from '../../../../diccionario-service.service';
+import { DiccionarioServiceService } from '../../../../Componentes Generales/Services/diccionario-service.service';
 import { Espanol } from '../../../Application/espanol';
 
 @Component({

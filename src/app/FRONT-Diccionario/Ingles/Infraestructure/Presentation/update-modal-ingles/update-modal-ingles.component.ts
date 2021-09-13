@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DiccionarioServiceService } from '../../../../diccionario-service.service';
+import { DiccionarioServiceService } from '../../../../Componentes Generales/Services/diccionario-service.service';
 import { Espanol } from '../../../../Espanol/Application/espanol';
 import { Ingles } from '../../../Application/ingles';
 

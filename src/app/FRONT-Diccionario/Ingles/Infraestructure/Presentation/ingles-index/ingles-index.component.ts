@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { DiccionarioServiceService } from '../../../../diccionario-service.service';
+import { DiccionarioServiceService } from '../../../../Componentes Generales/Services/diccionario-service.service';
 import { Espanol } from '../../../../Espanol/Application/espanol';
 import { AddEnglishComponent } from '../add-english/add-english.component';
 import { Ingles } from '../../../Application/ingles';

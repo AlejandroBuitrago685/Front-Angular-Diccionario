@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import * as moment from 'moment';
-import { DiccionarioServiceService } from '../../../../diccionario-service.service';
+import { DiccionarioServiceService } from '../../../../Componentes Generales/Services/diccionario-service.service';
 import { AddEnglishComponent } from '../../../../Ingles/Infraestructure/Presentation/add-english/add-english.component';
 import { Ingles } from '../../../../Ingles/Application/ingles';
 import { Espanol } from '../../../Application/espanol';

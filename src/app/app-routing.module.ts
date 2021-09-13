@@ -6,8 +6,8 @@ import { GlobalErrorComponent } from './FRONT-Diccionario/ErrorHandling/global-e
 import { EspanolResolver } from './FRONT-Diccionario/Espanol/Infraestructure/Resolvers/espanol.resolver';
 import { InglesResolver } from './FRONT-Diccionario/Ingles/Infraestructure/Resolvers/ingles.resolver';
 import { IndexComponent } from './FRONT-Diccionario/Componentes Generales/index/index.component';
-import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './auth.guard';
+import { LoginComponent } from './FRONT-Diccionario/Auth/login/login.component';
+import { AuthGuard } from './FRONT-Diccionario/Guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component:  IndexComponent},

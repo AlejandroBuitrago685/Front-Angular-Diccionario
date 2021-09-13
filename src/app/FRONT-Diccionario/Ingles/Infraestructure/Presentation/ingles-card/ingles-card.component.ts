@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as moment from 'moment';
-import { DiccionarioServiceService } from '../../../../diccionario-service.service';
+import { DiccionarioServiceService } from '../../../../Componentes Generales/Services/diccionario-service.service';
 import { Ingles } from '../../../Application/ingles';
 
 @Component({

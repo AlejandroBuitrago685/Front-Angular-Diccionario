@@ -14,11 +14,14 @@
         <input type="password" id="pass" name="pass" formControlName="pass"/>
       </div>
   
-      <div class="Botones">
+      <div class="Botones" style="margin-bottom: 20px;">
         <button mat-stroked-button id="boton-enviar" color="primary"
           (click)="Login()" [disabled]="miFormulario.invalid">Iniciar sesión</button>
         <button mat-stroked-button color="primary" style="margin-left: 15px; color: brown;" [routerLink]="['/']">Cancelar</button>
       </div>
+
+      
+      <label style="cursor: pointer; color: cornflowerblue; display: flex; justify-content: center;" (click)="openDialog()">¿Aún no estás registrado?</label>
   
     </form>
   </div>

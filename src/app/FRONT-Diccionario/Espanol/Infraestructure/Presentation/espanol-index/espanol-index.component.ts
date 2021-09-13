@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { DiccionarioServiceService } from '../../../../diccionario-service.service';
+import { DiccionarioServiceService } from '../../../../Componentes Generales/Services/diccionario-service.service';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 import { Espanol } from '../../../Application/espanol';
 import { UpdateModalEspanolComponent } from '../update-modal-espanol/update-modal-espanol.component';

@@ -1,0 +1,29 @@
+<div class="caja1">
+    <form id="formulario" [formGroup]="miFormulario">
+
+        <h3 class="TituloModal">Registar nuevo usuario</h3>
+        <hr>
+
+        <div>
+            <label>Email</label>
+            <input placeholder="ejemplo@gmail.com" type="email" name="email" id="email" formControlName="email">
+            <br>
+
+            <label>Contraseña</label>
+            <input placeholder="Su contraseña" type="password" id="pass" name="pass"
+                formControlName="pass"/>
+            <br>
+            <label>Repetir Contraseña</label>
+            <input placeholder="Repita la contraseña" type="password" id="passrepeat" name="passrepeat"
+                formControlName="passrepeat"/>
+        </div>
+
+        <div class="Botones">
+            <button mat-stroked-button id="boton-enviar" color="primary" (click)="AddUser()"
+                [disabled]="miFormulario.invalid">Resgitrar usuario</button>
+            <button mat-stroked-button color="primary" style="margin-left: 15px; color: brown;"
+                [mat-dialog-close]>Cancelar</button>
+        </div>
+
+    </form>
+</div>
