@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  DBlUrl: "http://localhost:8080"
+  DBlUrl: "http://localhost:8080",
+  JSONUrl: "http://localhost:3000"
 };
 
 /*

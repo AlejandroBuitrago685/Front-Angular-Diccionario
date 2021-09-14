@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
 import { LoginService } from '../../Auth/Services/login.service';
 
 @Component({
@@ -10,6 +9,7 @@ import { LoginService } from '../../Auth/Services/login.service';
 export class HeaderComponent implements OnInit {
 
   logueado:boolean = false;
+  session = sessionStorage.getItem("login");
 
   constructor(private loginService: LoginService) { }
 
@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   CerrarSesion() {
     if (this.loginService.logueado == true) {
       this.logueado = false;
+      sessionStorage.removeItem("login");
       location.reload();
     }
   }

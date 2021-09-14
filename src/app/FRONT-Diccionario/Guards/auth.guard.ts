@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
-      if(this.loginService.logueado == true){
+      if(this.loginService.logueado == true || sessionStorage.getItem("login") == "true"){
         return true;
       }
 

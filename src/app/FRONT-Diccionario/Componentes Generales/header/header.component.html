@@ -1,5 +1,5 @@
 
-<ng-container *ngIf="logueado == false; else login">
+<ng-container *ngIf="logueado == false && session == null; else login">
 <div class="header-contenido">
   <div class="header-toolbar" role="banner">
     <img width="40" alt="Angular Logo" [routerLink]="['']" style="cursor: pointer;"
