@@ -5,7 +5,7 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, delay } from 'rxjs/operators';
 import { DiccionarioServiceService } from 'src/app/FRONT-Diccionario/Componentes Generales/Services/diccionario-service.service';
 
 @Injectable({
@@ -17,6 +17,7 @@ constructor(private DbService: DiccionarioServiceService){}
 
   resolve(route: ActivatedRouteSnapshot) {
     return this.DbService.ObtenerEspanol().pipe(
+      delay(3000),
       catchError(error => {
           alert("Ha ocurrido un error inesperado")
           console.log(error)

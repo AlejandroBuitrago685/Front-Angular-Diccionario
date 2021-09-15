@@ -15,6 +15,8 @@ export class LoginService {
 
   RutaJson =environment.JSONUrl;
 
+  constructor(private router:Router, private http:HttpClient) { }
+
   Loguear(){
 
       //console.log("LOGUEADO CORRECTAMENTE");
@@ -31,5 +33,4 @@ export class LoginService {
     return this.http.get<User[]>(this.RutaJson + "/usuarios");
   }
 
-  constructor(private router:Router, private http:HttpClient) { }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Espanol } from '../../Espanol/Application/espanol';
 import { Ingles } from '../../Ingles/Application/ingles';
