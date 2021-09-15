@@ -17,7 +17,7 @@ constructor(private DbService: DiccionarioServiceService){}
 
   resolve(route: ActivatedRouteSnapshot) {
     return this.DbService.ObtenerEspanol().pipe(
-      delay(3000),
+      delay(1500),
       catchError(error => {
           alert("Ha ocurrido un error inesperado")
           console.log(error)
