@@ -27,7 +27,7 @@ import { InglesCardComponent } from './FRONT-Diccionario/Ingles/Infraestructure/
 import { UpdateModalInglesComponent } from './FRONT-Diccionario/Ingles/Infraestructure/Presentation/update-modal-ingles/update-modal-ingles.component';
 import { LoginComponent } from './FRONT-Diccionario/Auth/login/login.component';
 import { RegisterModalComponent } from './FRONT-Diccionario/Auth/register-modal/register-modal.component';
-import { LoaderComponent } from './loader/loader.component';
+import { LoaderComponent } from './FRONT-Diccionario/Componentes Generales/loader/loader.component';
 
 @NgModule({
   declarations: [

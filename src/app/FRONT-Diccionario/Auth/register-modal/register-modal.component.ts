@@ -27,7 +27,7 @@ export class RegisterModalComponent implements OnInit {
     this.loginService.get().subscribe(
       p => this.Usuarios = p
     );
-    (error:any) => {
+    (error: any) => {
       console.log(error);
     }
 
@@ -46,10 +46,10 @@ export class RegisterModalComponent implements OnInit {
         emails.push(this.Usuarios[i].email);
       }
 
-      if(!emails.includes(email)){
+      if (!emails.includes(email)) {
         this.loginService.add(Usuario).subscribe(
-          res =>
-            {Swal.fire({
+          res => {
+            Swal.fire({
               position: 'top-end',
               icon: 'success',
               title: 'Usuario creado correctamente',
@@ -57,14 +57,14 @@ export class RegisterModalComponent implements OnInit {
               timer: 1500
             }),
             this.dialogRef.close();
-          } 
+          }
         );
         (error: any) => {
           console.log(error);
         }
       }
 
-      else{
+      else {
 
         Swal.fire({
           position: 'center',
@@ -75,6 +75,17 @@ export class RegisterModalComponent implements OnInit {
         })
 
       }
+    }
+    else {
+
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Las contraseñas no coinciden',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
     }
 
   }
